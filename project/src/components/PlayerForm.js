@@ -1,5 +1,6 @@
 // 1
 import React from 'react';
+import { connect } from 'react-redux';
 
 // 2
 export const PlayerForm = () => {
@@ -11,5 +12,14 @@ export const PlayerForm = () => {
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        players: state.players,
+        error: state.error
+    }
+}
 // 3
-export default PlayerForm;
+export default connect(
+    mapStateToProps,
+    {}
+)(PlayerForm);

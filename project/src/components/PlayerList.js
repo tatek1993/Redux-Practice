@@ -1,6 +1,7 @@
 // 1
 import React from 'react';
 import PlayerCard from './PlayerCard';
+import{ connect } from 'react-redux';
 
 // 2
 export const PlayerList = () => {
@@ -14,4 +15,15 @@ export const PlayerList = () => {
 }
 
 // 3
-export default PlayerList;
+const mapStateToProps = (state) => {
+    return {
+        players: state.players,
+        isFetching: state. isFetching,
+        errors: state.errors
+    }
+}
+
+export defaultconnect(
+    mapStateToProps,
+    {}
+    )(PlayerList);
